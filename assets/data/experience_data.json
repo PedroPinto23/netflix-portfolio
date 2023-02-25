@@ -1,7 +1,8 @@
 {
     "experiences": [
         {
-            "title": "ALL ABOUT SUNDAY | Sênior Flutter Developer",
+            "company": "SUNDAY",
+            "role": "Sênior Flutter Developer",
             "image": "assets/companies/sunday_logo.png",
             "color": "0xFFFACD01",
             "description": [
@@ -17,7 +18,8 @@
             ]
         },
         {
-            "title": "LOJONG | Flutter Developer",
+            "company": "Lojong",
+            "role": "Flutter Developer",
             "image": "assets/companies/lojong_logo.png",
             "color": "0xFFE09090",
             "description": [
@@ -33,7 +35,8 @@
             ]
         },
         {
-            "title": "UBISTART | Flutter Developer",
+            "company": "Ubistart",
+            "role": "Flutter Developer",
             "image": "assets/companies/ubistart_logo.png",
             "color": "0xFFFFFFFF",
             "description": [
@@ -49,7 +52,8 @@
             ]
         },
         {
-            "title": "PETTECH | Flutter Developer (Freelancer)",
+            "company": "PetTech",
+            "role": "Flutter Developer (Freelancer)",
             "image": "assets/companies/pettech_logo.jpeg",
             "color": "0xFF42A5F5",
             "description": [

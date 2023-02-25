@@ -13,14 +13,22 @@ class ExperiencesData {
 }
 
 class Experience {
-  String? title;
+  String? company;
+  String? role;
   String? image;
   String? color;
   List<Description>? description;
-  Experience({this.title, this.image, this.color, this.description});
+  Experience({
+    this.company,
+    this.role,
+    this.image,
+    this.color,
+    this.description,
+  });
 
   factory Experience.fromJson(Map<String, dynamic> json) => Experience(
-        title: json["title"],
+        company: json["company"],
+        role: json["role"],
         image: json["image"],
         color: json["color"],
         description: List.from(json["description"])
@@ -29,7 +37,8 @@ class Experience {
       );
 
   Map<String, dynamic> get toMap => {
-        "title": title,
+        "company": company,
+        "role": role,
         "image": image,
         "color": color,
         "description": description,

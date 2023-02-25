@@ -67,17 +67,20 @@ class _ExperiencesState extends State<Experiences> {
           return ListView.builder(
             shrinkWrap: true,
             itemCount: data.length,
-            itemBuilder: (context, index) => experienceTile(data[index], index),
+            itemBuilder: (_, index) => Column(
+              children: [experienceTile(data[index], index), divider],
+            ),
           );
         }
       });
 
   Widget experienceTile(Experience data, int index) => Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
           children: [
             Text("${index + 1}", style: yearsExpStyle),
             imageTile(data.image ?? "", int.parse(data.color ?? "")),
+            Flexible(child: columnTile(data)),
           ],
         ),
       );
@@ -89,6 +92,38 @@ class _ExperiencesState extends State<Experiences> {
         width: 130,
         child: Image.asset(path),
       );
+
+  Widget columnTile(Experience data) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          descriptionTitle(data.company, data.role),
+          const SizedBox(height: 8),
+          descriptionItems(data.description ?? []),
+        ],
+      );
+
+  RichText descriptionTitle(String? title, String? subtitle) => RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(text: title, style: descTitleStyle),
+            TextSpan(text: " | ", style: descSubtitleStyle),
+            TextSpan(text: subtitle, style: descSubtitleStyle),
+          ],
+        ),
+      );
+
+  Widget descriptionItems(List<Description> descriptions) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.from(descriptions.map(descriptionTile).toList()),
+      );
+
+  Widget descriptionTile(Description data) {
+    final item = data.item ?? "";
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Text("• $item", style: descTileStyle),
+    );
+  }
 
   Widget get loader => const Center(
         child: CircularProgressIndicator(
@@ -103,8 +138,24 @@ class _ExperiencesState extends State<Experiences> {
       );
 
   TextStyle get yearsExpStyle => GoogleFonts.oxygen(
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         color: Colors.white,
-        fontSize: 18,
+        fontSize: 16,
+      );
+
+  TextStyle get descTitleStyle => GoogleFonts.oxygen(
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+        fontSize: 14,
+      );
+
+  TextStyle get descSubtitleStyle => GoogleFonts.oxygen(
+        color: Colors.white,
+        fontSize: 13,
+      );
+
+  TextStyle get descTileStyle => GoogleFonts.oxygen(
+        color: Colors.white,
+        fontSize: 12,
       );
 }
