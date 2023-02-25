@@ -15,8 +15,9 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
   Widget build(BuildContext context) {
     debugPrint("device width: $width");
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: mobileMode ? mobileLayout : webLayout);
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: mobileMode ? mobileLayout : webLayout,
+    );
   }
 
   Widget get mobileLayout => Column(
@@ -66,9 +67,12 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            myInfoTile(TextStrings.aboutMeEduLabel, TextStrings.aboutMeEduValue),
-            myInfoTile(TextStrings.aboutMeSkillsLabel, TextStrings.aboutMeSkillsValue),
-            myInfoTile(TextStrings.aboutMeMethodLabel, TextStrings.aboutMeMethodValue),
+            myInfoTile(
+                TextStrings.aboutMeEduLabel, TextStrings.aboutMeEduValue),
+            myInfoTile(
+                TextStrings.aboutMeSkillsLabel, TextStrings.aboutMeSkillsValue),
+            myInfoTile(
+                TextStrings.aboutMeMethodLabel, TextStrings.aboutMeMethodValue),
           ],
         ),
       );

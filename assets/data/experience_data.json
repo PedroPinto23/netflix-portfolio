@@ -3,6 +3,7 @@
         {
             "title": "ALL ABOUT SUNDAY | Sênior Flutter Developer",
             "image": "assets/companies/sunday_logo.png",
+            "color": "0xFFFACD01",
             "description": [
                 {
                     "item": "item 1"
@@ -18,6 +19,7 @@
         {
             "title": "LOJONG | Flutter Developer",
             "image": "assets/companies/lojong_logo.png",
+            "color": "0xFFE09090",
             "description": [
                 {
                     "item": "item 1"
@@ -32,7 +34,8 @@
         },
         {
             "title": "UBISTART | Flutter Developer",
-            "image": "assets/companies/ubistart_logo.jpeg",
+            "image": "assets/companies/ubistart_logo.png",
+            "color": "0xFFFFFFFF",
             "description": [
                 {
                     "item": "item 1"
@@ -48,6 +51,7 @@
         {
             "title": "PETTECH | Flutter Developer (Freelancer)",
             "image": "assets/companies/pettech_logo.jpeg",
+            "color": "0xFF42A5F5",
             "description": [
                 {
                     "item": "item 1"

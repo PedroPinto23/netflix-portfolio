@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_resume/data/experience_data.dart';
+import 'package:my_resume/data/fetch_experience_data.dart';
 import 'package:my_resume/strings/text_strings.dart';
 
 class Experiences extends StatefulWidget {
@@ -55,26 +57,43 @@ class _ExperiencesState extends State<Experiences> {
 
   Divider get divider => const Divider(thickness: 1, color: Colors.white24);
 
-  Widget get experiences => ListView(
-        shrinkWrap: true,
-        children: [experienceTile],
-      );
+  Widget get experiences => FutureBuilder(
+      future: FetchExperience.getData(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return loader;
+        } else {
+          final data = snapshot.data?.experiences ?? [];
+          return ListView.builder(
+            shrinkWrap: true,
+            itemCount: data.length,
+            itemBuilder: (context, index) => experienceTile(data[index], index),
+          );
+        }
+      });
 
-  Widget get experienceTile => Padding(
+  Widget experienceTile(Experience data, int index) => Padding(
         padding: const EdgeInsets.all(20),
         child: Row(
           children: [
-            Text("1", style: yearsExpStyle),
-            imageTile,
+            Text("${index + 1}", style: yearsExpStyle),
+            imageTile(data.image ?? "", int.parse(data.color ?? "")),
           ],
         ),
       );
 
-  Widget get imageTile => Container(
+  Widget imageTile(String path, int color) => Container(
         margin: const EdgeInsets.symmetric(horizontal: 20),
-        color: Colors.red,
+        color: Color(color),
         height: 80,
-        width: 150,
+        width: 130,
+        child: Image.asset(path),
+      );
+
+  Widget get loader => const Center(
+        child: CircularProgressIndicator(
+          valueColor: AlwaysStoppedAnimation(Colors.white),
+        ),
       );
 
   TextStyle get titleStyle => GoogleFonts.oxygen(
