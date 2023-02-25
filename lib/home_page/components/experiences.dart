@@ -65,6 +65,7 @@ class _ExperiencesState extends State<Experiences> {
         } else {
           final data = snapshot.data?.experiences ?? [];
           return ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: data.length,
             itemBuilder: (_, index) => Column(

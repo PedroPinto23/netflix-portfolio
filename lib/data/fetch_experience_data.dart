@@ -7,7 +7,7 @@ import 'package:my_resume/data/experience_data.dart';
 class FetchExperience {
   static Future<ExperiencesData> getData() async {
     try {
-      const path = '/data/experience_data.json';
+      const path = 'assets/data/experience_data.json';
       final response = await rootBundle.loadString(path);
       final data = await json.decode(response);
       final experiences = ExperiencesData.fromJson(data);
