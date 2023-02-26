@@ -57,6 +57,8 @@ class _ExperiencesState extends State<Experiences> {
 
   Divider get divider => const Divider(thickness: 1, color: Colors.white24);
 
+  int imageColor(Experience data) => int.parse(data.color ?? "");
+
   Widget get experiences => FutureBuilder(
       future: FetchExperience.getData(),
       builder: (context, snapshot) {
@@ -68,61 +70,106 @@ class _ExperiencesState extends State<Experiences> {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: data.length,
-            itemBuilder: (_, index) => Column(
-              children: [experienceTile(data[index], index), divider],
-            ),
+            itemBuilder: (_, index) => isTiny
+                ? expTileMobile(data[index], index + 1)
+                : expTileDesktop(data[index], index + 1),
           );
         }
       });
 
-  Widget experienceTile(Experience data, int index) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Row(
-          children: [
-            Text("${index + 1}", style: yearsExpStyle),
-            imageTile(data.image ?? "", int.parse(data.color ?? "")),
-            Flexible(child: columnTile(data)),
-          ],
-        ),
+  Widget expTileDesktop(Experience data, int index) => Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("$index", style: yearsExpStyle),
+                const SizedBox(width: 20),
+                imageTile(data.image ?? "", imageColor(data)),
+                const SizedBox(width: 20),
+                Flexible(child: columnTile(data)),
+              ],
+            ),
+          ),
+          divider,
+        ],
+      );
+
+  Widget expTileMobile(Experience data, int index) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Row(
+              children: [
+                imageTile(data.image ?? "", imageColor(data)),
+                const SizedBox(width: 20),
+                descTitleMobile(data, index),
+              ],
+            ),
+          ),
+          descriptionItems(data.description ?? [])
+        ],
       );
 
   Widget imageTile(String path, int color) => Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
         color: Color(color),
-        height: 80,
-        width: 130,
+        height: 78.36,
+        width: 139.17,
         child: Image.asset(path),
       );
 
   Widget columnTile(Experience data) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          descriptionTitle(data.company, data.role),
+          descTitleDesktop(data),
           const SizedBox(height: 8),
           descriptionItems(data.description ?? []),
         ],
       );
 
-  RichText descriptionTitle(String? title, String? subtitle) => RichText(
-        text: TextSpan(
+  Widget descTitleDesktop(Experience data) => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(text: data.company, style: descTitleStyle),
+                  TextSpan(text: " | ", style: descSubtitleStyle),
+                  TextSpan(text: data.role, style: descSubtitleStyle),
+                ],
+              ),
+            ),
+          ),
+          Text(data.duration ?? "", style: descDurationStyle),
+        ],
+      );
+
+  Widget descTitleMobile(Experience data, int index) => Flexible(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextSpan(text: title, style: descTitleStyle),
-            TextSpan(text: " | ", style: descSubtitleStyle),
-            TextSpan(text: subtitle, style: descSubtitleStyle),
+            Text('$index. ${data.company ?? ""}', style: descTitleStyle),
+            const SizedBox(height: 3),
+            Text(data.role ?? "", style: descSubtitleStyle),
+            const SizedBox(height: 3),
+            Text(data.duration ?? "", style: descDurationStyle),
           ],
         ),
       );
 
   Widget descriptionItems(List<Description> descriptions) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.from(descriptions.map(descriptionTile).toList()),
+        children: List.from(descriptions.map(itemsTile).toList()),
       );
 
-  Widget descriptionTile(Description data) {
+  Widget itemsTile(Description data) {
     final item = data.item ?? "";
     return Padding(
       padding: const EdgeInsets.only(bottom: 5),
-      child: Text("• $item", style: descTileStyle),
+      child: Text("• $item", style: itemsTileStyle),
     );
   }
 
@@ -131,6 +178,10 @@ class _ExperiencesState extends State<Experiences> {
           valueColor: AlwaysStoppedAnimation(Colors.white),
         ),
       );
+
+  double get width => MediaQuery.of(context).size.width;
+
+  bool get isTiny => width < 600;
 
   TextStyle get titleStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.bold,
@@ -145,7 +196,7 @@ class _ExperiencesState extends State<Experiences> {
       );
 
   TextStyle get descTitleStyle => GoogleFonts.oxygen(
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w900,
         color: Colors.white,
         fontSize: 14,
       );
@@ -155,7 +206,13 @@ class _ExperiencesState extends State<Experiences> {
         fontSize: 13,
       );
 
-  TextStyle get descTileStyle => GoogleFonts.oxygen(
+  TextStyle get descDurationStyle => GoogleFonts.oxygen(
+        color: Colors.white,
+        fontStyle: FontStyle.italic,
+        fontSize: 13,
+      );
+
+  TextStyle get itemsTileStyle => GoogleFonts.oxygen(
         color: Colors.white,
         fontSize: 12,
       );

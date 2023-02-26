@@ -3,23 +3,25 @@
         {
             "company": "SUNDAY",
             "role": "Sênior Flutter Developer",
+            "duration": "Apr 2021 - Present",
             "image": "assets/companies/sunday_logo.png",
             "color": "0xFFFACD01",
             "description": [
                 {
-                    "item": "item 1"
+                    "item": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                 },
                 {
-                    "item": "item 2"
+                    "item": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                 },
                 {
-                    "item": "item 3"
+                    "item": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                 }
             ]
         },
         {
             "company": "Lojong",
             "role": "Flutter Developer",
+            "duration": "Sept 22 - Present",
             "image": "assets/companies/lojong_logo.png",
             "color": "0xFFE09090",
             "description": [
@@ -37,6 +39,25 @@
         {
             "company": "Ubistart",
             "role": "Flutter Developer",
+            "duration": "Sept 2021 - Dec 2022",
+            "image": "assets/companies/ubistart_logo.png",
+            "color": "0xFFFFFFFF",
+            "description": [
+                {
+                    "item": "item 1"
+                },
+                {
+                    "item": "item 2"
+                },
+                {
+                    "item": "item 3"
+                }
+            ]
+        },
+        {
+            "company": "Ubistart",
+            "role": "Flutter Developer",
+            "duration": "Sept 2020 - Feb 2021",
             "image": "assets/companies/ubistart_logo.png",
             "color": "0xFFFFFFFF",
             "description": [
@@ -54,6 +75,7 @@
         {
             "company": "PetTech",
             "role": "Flutter Developer (Freelancer)",
+            "duration": "Mar 2020 - Abr 2020",
             "image": "assets/companies/pettech_logo.jpeg",
             "color": "0xFF42A5F5",
             "description": [
