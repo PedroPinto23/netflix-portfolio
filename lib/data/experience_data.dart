@@ -17,6 +17,7 @@ class Experience {
   String? role;
   String? duration;
   String? image;
+  String? link;
   String? color;
   List<Description>? description;
   Experience({
@@ -24,6 +25,7 @@ class Experience {
     this.role,
     this.duration,
     this.image,
+    this.link,
     this.color,
     this.description,
   });
@@ -33,6 +35,7 @@ class Experience {
         role: json["role"],
         duration: json["duration"],
         image: json["image"],
+        link: json["link"],
         color: json["color"],
         description: List.from(json["description"])
             .map((e) => Description.fromJson(e))
@@ -44,6 +47,7 @@ class Experience {
         "role": role,
         "duration": duration,
         "image": image,
+        "link": link,
         "color": color,
         "description": description,
       };

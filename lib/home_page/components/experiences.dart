@@ -4,6 +4,7 @@ import 'package:my_resume/data/experience_data.dart';
 import 'package:my_resume/data/fetch_experience_data.dart';
 import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Experiences extends StatefulWidget {
   const Experiences({super.key});
@@ -98,11 +99,13 @@ class _ExperiencesState extends State<Experiences> {
           itemBuilder: (_, index) {
             final length = currentLength;
             final i = index + 1;
-            final showButton =
-                showMore ? (length == index + 1) : expList.length == index + 1;
-            return isTiny
-                ? expTileMobile(expList[index], index + 1)
-                : expTileDesktop(expList[index], i, showButton);
+            final showButton = showMore ? (length == i) : expList.length == i;
+            return GestureDetector(
+              onTap: () => onTapTile(expList[index].link),
+              child: isTiny
+                  ? expTileMobile(expList[index], index + 1)
+                  : expTileDesktop(expList[index], i, showButton),
+            );
           },
         );
 
@@ -231,6 +234,12 @@ class _ExperiencesState extends State<Experiences> {
   double get width => MediaQuery.of(context).size.width;
 
   bool get isTiny => width < 500;
+
+  void onTapTile(String? link) {
+    if (link?.isNotEmpty ?? false) {
+      launchUrlString(link!);
+    }
+  }
 
   void onShowMore() => setState(() => currentLength = expList.length);
 
