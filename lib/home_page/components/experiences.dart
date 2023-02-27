@@ -34,7 +34,7 @@ class _ExperiencesState extends State<Experiences> {
           topComponent,
           customDivider(),
           experiences,
-          if (isTiny) customDivider()
+          if (isTiny) customDivider(showButton: true)
         ],
       ),
     );

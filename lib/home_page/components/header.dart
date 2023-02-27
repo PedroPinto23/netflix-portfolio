@@ -17,7 +17,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 350,
       width: width,
       child: Stack(
         alignment: Alignment.center,
