@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/image_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HeaderComponent extends StatefulWidget {
   const HeaderComponent({super.key});
@@ -71,7 +72,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
       );
 
   MaterialButton get resumeButton => MaterialButton(
-        onPressed: () {},
+        onPressed: onTapResume,
         color: ColorStrings.white,
         child: Row(
           children: [playIcon, Text(resumeText, style: resumeButtonStyle)],
@@ -127,6 +128,8 @@ class _HeaderComponentState extends State<HeaderComponent> {
         end: mobileMode ? Alignment.bottomCenter : Alignment.centerLeft,
         colors: const [Colors.transparent, Colors.black],
       );
+
+  void onTapResume() => launchUrlString(TextStrings.aboutMeResumeLink);
 
   void onTapLike() => setState(() => iconLiked = true);
 

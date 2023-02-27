@@ -5,6 +5,7 @@ class TextStrings {
   static const aboutMeMainSkill = "Mobile Developer";
   static const aboutMeYear = "2023";
   static const aboutMeLanguages = "English | Portuguese";
+  static const aboutMeResumeLink = "https://drive.google.com/file/d/1P3bPJggcyMhNyIA2V37ElDlR2vOy1kNf/view?usp=share_link";
   static const aboutMeDescription = "I am a Brazilian mobile developer who is passionate about what I do and always looking for new challenges and opportunities to learn.\n\nThroughout my career, I have had the pleasure of working with several companies, and my work and team have always received excellent feedback. I am highly attentive and dedicated to delivering quality work that meets and exceeds expectations.";
   static const aboutMeEduLabel = "Education";
   static const aboutMeEduValue = "Computer Engineering | Udemy Courses";
