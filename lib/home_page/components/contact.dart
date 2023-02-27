@@ -80,7 +80,7 @@ class _ContactState extends State<Contact> {
 
   TextStyle get titleStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: 22,
       );
 

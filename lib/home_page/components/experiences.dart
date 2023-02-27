@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_resume/data/experience_data.dart';
 import 'package:my_resume/data/fetch_experience_data.dart';
+import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
 
 class Experiences extends StatefulWidget {
@@ -63,7 +64,7 @@ class _ExperiencesState extends State<Experiences> {
             Text(TextStrings.expYearsValue, style: yearsExpStyle),
             const Icon(
               Icons.arrow_drop_down_sharp,
-              color: Colors.white,
+              color: ColorStrings.white,
               textDirection: TextDirection.rtl,
               size: 30,
             ),
@@ -213,7 +214,7 @@ class _ExperiencesState extends State<Experiences> {
         child: Icon(
           showMore ? showMoreIcon : showLessIcon,
           size: 35,
-          color: Colors.white,
+          color: ColorStrings.white,
         ),
       ));
 
@@ -237,35 +238,35 @@ class _ExperiencesState extends State<Experiences> {
 
   TextStyle get titleStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: 22,
       );
 
   TextStyle get yearsExpStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.w500,
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: 16,
       );
 
   TextStyle get descTitleStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.w900,
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: 14,
       );
 
   TextStyle get descSubtitleStyle => GoogleFonts.oxygen(
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: 13,
       );
 
   TextStyle get descDurationStyle => GoogleFonts.oxygen(
-        color: Colors.white,
+        color: ColorStrings.white,
         fontStyle: FontStyle.italic,
         fontSize: 13,
       );
 
   TextStyle get itemsTileStyle => GoogleFonts.oxygen(
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: 12,
       );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/image_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
 
@@ -71,7 +72,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   MaterialButton get resumeButton => MaterialButton(
         onPressed: () {},
-        color: Colors.white,
+        color: ColorStrings.white,
         child: Row(
           children: [playIcon, Text(resumeText, style: resumeButtonStyle)],
         ),
@@ -130,7 +131,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
   void onTapLike() => setState(() => iconLiked = true);
 
   TextStyle get titleStyle => GoogleFonts.chakraPetch(
-        color: Colors.white,
+        color: ColorStrings.white,
         fontSize: mobileMode && (fontSizeTitle < fontSizeTitleDefault)
             ? fontSizeTitle
             : fontSizeTitleDefault,
