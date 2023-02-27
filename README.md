@@ -1,16 +1,11 @@
-# my_resume
+# MY PORTFOLIO
 
-A new Flutter project.
+A portfolio with Netflix layout
 
-## Getting Started
+I decided to do a re-work on my portfolio. This is a fully project made by me,
+This project will have Firebase for hosting.
 
-This project is a starting point for a Flutter application.
+I took 5 days to finish this interface.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
