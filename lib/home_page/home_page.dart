@@ -16,12 +16,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: body,
-    );
+    return Scaffold(body: body);
   }
-
-  AppBar get appBar => AppBar();
 
   Widget get body => Stack(
         alignment: Alignment.center,

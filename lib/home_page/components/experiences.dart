@@ -12,16 +12,38 @@ class Experiences extends StatefulWidget {
 }
 
 class _ExperiencesState extends State<Experiences> {
+  int currentLength = 3;
+  ExperiencesData? expData;
+
+  @override
+  void initState() {
+    super.initState();
+    FetchExperience.getData().then((data) {
+      setState(() => expData = data);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [topComponent, divider, experiences, if (isTiny) divider],
+        children: [
+          topComponent,
+          customDivider(),
+          experiences,
+          if (isTiny) customDivider()
+        ],
       ),
     );
   }
+
+  bool get isDataEmpty => expData == null;
+
+  List<Experience> get expList => expData?.experiences ?? [];
+
+  bool get showMore => expList.length > currentLength;
 
   Widget get topComponent => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,44 +79,52 @@ class _ExperiencesState extends State<Experiences> {
 
   Divider get divider => const Divider(thickness: 1, color: Colors.white24);
 
+  Widget customDivider({bool showButton = false}) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [divider, if (showButton) dividerIconButton],
+    );
+  }
+
   int imageColor(Experience data) => int.parse(data.color ?? "");
 
-  Widget get experiences => FutureBuilder(
-      future: FetchExperience.getData(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return loader;
-        } else {
-          final data = snapshot.data?.experiences ?? [];
-          return ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: data.length,
-            itemBuilder: (_, index) => isTiny
-                ? expTileMobile(data[index], index + 1)
-                : expTileDesktop(data[index], index + 1),
-          );
-        }
-      });
+  Widget get experiences => isDataEmpty
+      ? loader
+      : ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: currentLength,
+          itemBuilder: (_, index) {
+            final length = currentLength;
+            final i = index + 1;
+            final showButton =
+                showMore ? (length == index + 1) : expList.length == index + 1;
+            return isTiny
+                ? expTileMobile(expList[index], index + 1)
+                : expTileDesktop(expList[index], i, showButton);
+          },
+        );
 
-  Widget expTileDesktop(Experience data, int index) => Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("$index", style: yearsExpStyle),
-                const SizedBox(width: 20),
-                imageTile(data.image ?? "", imageColor(data)),
-                const SizedBox(width: 20),
-                Flexible(child: columnTile(data)),
-              ],
-            ),
+  Widget expTileDesktop(Experience data, int index, bool showButton) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("$index", style: yearsExpStyle),
+              const SizedBox(width: 20),
+              imageTile(data.image ?? "", imageColor(data)),
+              const SizedBox(width: 20),
+              Flexible(child: columnTile(data)),
+            ],
           ),
-          divider,
-        ],
-      );
+        ),
+        customDivider(showButton: showButton),
+      ],
+    );
+  }
 
   Widget expTileMobile(Experience data, int index) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,6 +203,24 @@ class _ExperiencesState extends State<Experiences> {
     );
   }
 
+  Widget get dividerIconButton => InkWell(
+      onTap: () => showMore ? onShowMore() : onShowLess(),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white30, width: 3),
+        ),
+        child: Icon(
+          showMore ? showMoreIcon : showLessIcon,
+          size: 35,
+          color: Colors.white,
+        ),
+      ));
+
+  IconData get showMoreIcon => Icons.keyboard_arrow_down_outlined;
+
+  IconData get showLessIcon => Icons.keyboard_arrow_up;
+
   Widget get loader => const Center(
         child: CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation(Colors.white),
@@ -181,7 +229,11 @@ class _ExperiencesState extends State<Experiences> {
 
   double get width => MediaQuery.of(context).size.width;
 
-  bool get isTiny => width < 600;
+  bool get isTiny => width < 500;
+
+  void onShowMore() => setState(() => currentLength = expList.length);
+
+  void onShowLess() => setState(() => currentLength = 3);
 
   TextStyle get titleStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.bold,
