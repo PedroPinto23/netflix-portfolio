@@ -13,7 +13,7 @@ class TextStrings {
   static const aboutMeMethodLabel = "Agile Methodologies";
   static const aboutMeMethodValue = "JIRA | Trello | Asana";
 
-  static const expTitle = "Work Experiece";
+  static const expTitle = "Work Experience";
   static const expYearsValue = "3 Years";
 
   static const contactTitle = "Contact me";
