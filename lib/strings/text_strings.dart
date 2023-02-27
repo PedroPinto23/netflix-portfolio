@@ -1,6 +1,6 @@
 class TextStrings {
   static const headerTitle = "Pedro Pinto";
-  static const resumeText = "Résumé";
+  static const resumeText = "Resume";
 
   static const aboutMeMainSkill = "Mobile Developer";
   static const aboutMeYear = "2023";
@@ -10,7 +10,7 @@ class TextStrings {
   static const aboutMeEduLabel = "Education";
   static const aboutMeEduValue = "Computer Engineering | Udemy Courses";
   static const aboutMeSkillsLabel = "Top Skills";
-  static const aboutMeSkillsValue = "Flutter | Dart | Firebase | MlKit";
+  static const aboutMeSkillsValue = "Flutter | Dart | Firebase | Clean Code";
   static const aboutMeMethodLabel = "Agile Methodologies";
   static const aboutMeMethodValue = "JIRA | Trello | Asana";
 

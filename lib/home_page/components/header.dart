@@ -32,11 +32,11 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   double get fontSizeTitleDefault => 40.0;
 
-  double get fontSizeTitle => width / 15;
+  double get fontSizeTitle => width / 13;
 
-  double get fontSizeButtonDefault => 14.0;
+  double get fontSizeButtonDefault => 16.0;
 
-  double get fontSizeButton => width / 40;
+  double get fontSizeButton => width / 25;
 
   double get width => MediaQuery.of(context).size.width;
 
@@ -72,6 +72,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
       );
 
   MaterialButton get resumeButton => MaterialButton(
+        height: 50,
         onPressed: onTapResume,
         color: ColorStrings.white,
         child: Row(
@@ -82,6 +83,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
   Icon get playIcon => const Icon(
         Icons.play_arrow_rounded,
         color: Colors.black,
+        size: 40,
       );
 
   Widget get addFavoritesButton => Container(
@@ -89,7 +91,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
         child: const Icon(
           Icons.add,
           color: Color(0x3CFFFFFF),
-          size: 30,
+          size: 40,
         ),
       );
 
@@ -103,7 +105,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   Widget get whiteBorder => Container(
         decoration: likeDecoration,
-        child: const Icon(Icons.abc, color: Colors.transparent, size: 30),
+        child: const Icon(Icons.abc, color: Colors.transparent, size: 40),
       );
 
   BoxDecoration get likeDecoration => BoxDecoration(
@@ -113,7 +115,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   Widget get likeIcon => Lottie.asset(
         ImageStrings.lottieLikeIcon,
-        height: 40,
+        height: 55,
         repeat: false,
         animate: iconLiked,
       );
