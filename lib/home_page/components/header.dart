@@ -16,7 +16,8 @@ class _HeaderComponentState extends State<HeaderComponent> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
+      height: 400,
+      width: width,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -37,7 +38,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   double get width => MediaQuery.of(context).size.width;
 
-  bool get mobileMode => width < 450;
+  bool get mobileMode => width < 500;
 
   String get headerTitle => TextStrings.headerTitle;
 
@@ -76,8 +77,10 @@ class _HeaderComponentState extends State<HeaderComponent> {
         ),
       );
 
-  Icon get playIcon =>
-      const Icon(Icons.play_arrow_rounded, color: Colors.black);
+  Icon get playIcon => const Icon(
+        Icons.play_arrow_rounded,
+        color: Colors.black,
+      );
 
   Widget get addFavoritesButton => Container(
         decoration: likeDecoration,
@@ -115,7 +118,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   Widget get photoComponent => Container(
         foregroundDecoration: BoxDecoration(gradient: profileGradient),
-        child: Image.asset(profileImage, width: width),
+        child: Image.asset(profileImage, width: mobileMode ? width : null),
       );
 
   LinearGradient get profileGradient => LinearGradient(

@@ -18,7 +18,7 @@ class _ExperiencesState extends State<Experiences> {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [topComponent, divider, experiences, divider],
+        children: [topComponent, divider, experiences, if (isTiny) divider],
       ),
     );
   }
