@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:my_resume/strings/image_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
 
@@ -11,10 +12,11 @@ class HeaderComponent extends StatefulWidget {
 }
 
 class _HeaderComponentState extends State<HeaderComponent> {
+  bool iconLiked = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 350,
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -61,7 +63,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
           resumeButton,
           const SizedBox(width: 10),
           addFavoritesButton,
-          const SizedBox(width: 10),
+          const SizedBox(width: 5),
           likeIconButton,
         ],
       );
@@ -81,30 +83,39 @@ class _HeaderComponentState extends State<HeaderComponent> {
         decoration: likeDecoration,
         child: const Icon(
           Icons.add,
-          color: Colors.white24,
+          color: Color(0x3CFFFFFF),
           size: 30,
         ),
       );
 
-  Widget get likeIconButton => Container(
+  Widget get likeIconButton => InkWell(
+        onTap: onTapLike,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [whiteBorder, likeIcon],
+        ),
+      );
+
+  Widget get whiteBorder => Container(
         decoration: likeDecoration,
-        child: likeIcon,
+        child: const Icon(Icons.abc, color: Colors.transparent, size: 30),
       );
 
   BoxDecoration get likeDecoration => BoxDecoration(
-        borderRadius: BorderRadius.circular(45),
         border: Border.all(color: Colors.white),
+        shape: BoxShape.circle,
       );
 
-  Image get likeIcon => Image.asset(
-        ImageStrings.likeIcon,
-        height: 30,
-        color: Colors.white24,
+  Widget get likeIcon => Lottie.asset(
+        ImageStrings.lottieLikeIcon,
+        height: 40,
+        repeat: false,
+        animate: iconLiked,
       );
 
   Widget get photoComponent => Container(
         foregroundDecoration: BoxDecoration(gradient: profileGradient),
-        child: Image.asset(profileImage),
+        child: Image.asset(profileImage, width: width),
       );
 
   LinearGradient get profileGradient => LinearGradient(
@@ -112,6 +123,8 @@ class _HeaderComponentState extends State<HeaderComponent> {
         end: mobileMode ? Alignment.bottomCenter : Alignment.centerLeft,
         colors: const [Colors.transparent, Colors.black],
       );
+
+  void onTapLike() => setState(() => iconLiked = true);
 
   TextStyle get titleStyle => GoogleFonts.chakraPetch(
         color: Colors.white,

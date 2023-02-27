@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_resume/home_page/components/about_me.dart';
+import 'package:my_resume/home_page/components/contact.dart';
 import 'package:my_resume/home_page/components/experiences.dart';
 import 'package:my_resume/home_page/components/header.dart';
 import 'package:my_resume/strings/color_strings.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           color: ColorStrings.primary,
           child: ListView(
-            children: [header, aboutMe, experiences],
+            children: [header, aboutMe, experiences, contact],
           ),
         ),
       );
@@ -41,4 +42,6 @@ class _HomePageState extends State<HomePage> {
   Widget get aboutMe => const AboutMeComponent();
 
   Widget get experiences => const Experiences();
+
+  Widget get contact => const Contact();
 }

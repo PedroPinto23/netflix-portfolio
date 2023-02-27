@@ -68,11 +68,17 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             myInfoTile(
-                TextStrings.aboutMeEduLabel, TextStrings.aboutMeEduValue),
+              TextStrings.aboutMeEduLabel,
+              TextStrings.aboutMeEduValue,
+            ),
             myInfoTile(
-                TextStrings.aboutMeSkillsLabel, TextStrings.aboutMeSkillsValue),
+              TextStrings.aboutMeSkillsLabel,
+              TextStrings.aboutMeSkillsValue,
+            ),
             myInfoTile(
-                TextStrings.aboutMeMethodLabel, TextStrings.aboutMeMethodValue),
+              TextStrings.aboutMeMethodLabel,
+              TextStrings.aboutMeMethodValue,
+            ),
           ],
         ),
       );
@@ -108,13 +114,13 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
         fontSize: isTiny ? (width * 0.025) : 13,
       );
 
-  TextStyle get descriptionStyle => GoogleFonts.oxygen(
-        color: ColorStrings.white,
+  TextStyle get descriptionLabelStyle => GoogleFonts.oxygen(
+        color: ColorStrings.grey,
         fontSize: 14,
       );
 
-  TextStyle get descriptionLabelStyle => GoogleFonts.oxygen(
-        color: ColorStrings.grey,
+  TextStyle get descriptionStyle => GoogleFonts.oxygen(
+        color: ColorStrings.white,
         fontSize: 14,
       );
 }

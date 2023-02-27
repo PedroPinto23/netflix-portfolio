@@ -5,7 +5,7 @@ class TextStrings {
   static const aboutMeMainSkill = "Mobile Developer";
   static const aboutMeYear = "2023";
   static const aboutMeLanguages = "English | Portuguese";
-  static const aboutMeDescription = "Experienced software developer with a strong track record of building OTT applications on various platforms. Skilled in developing, testing, and deploying cross-platform apps using the latest technologies. Proven ability to work in a fast-paced environment and deliver high-quality products on schedule";
+  static const aboutMeDescription = "I am a Brazilian mobile developer who is passionate about what I do and always looking for new challenges and opportunities to learn.\n\nThroughout my career, I have had the pleasure of working with several companies, and my work and team have always received excellent feedback. I am highly attentive and dedicated to delivering quality work that meets and exceeds expectations.";
   static const aboutMeEduLabel = "Education";
   static const aboutMeEduValue = "Computer Engineering";
   static const aboutMeSkillsLabel = "Top Skills";
@@ -15,4 +15,13 @@ class TextStrings {
 
   static const expTitle = "Work Experiece";
   static const expYearsValue = "3 Years";
+
+  static const contactTitle = "Contact me";
+  static const contactEmailLabel = "E-mail";
+  static const contactEmail = "pedro.dev42@gmail.com";
+  static const contactPhoneLabel = "Phone";
+  static const contactPhone = "+55 21 97123-4498";
+  static const contactRootText = "Portfolio made by me using Flutter | Firebase";
+  static const contactgithubLabel = "My GitHub Repository";
+  static const contactgithub = "https://github.com/PedroPinto23/netflix-portfolio";
 }

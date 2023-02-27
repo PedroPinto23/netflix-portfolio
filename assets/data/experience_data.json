@@ -8,13 +8,16 @@
             "color": "0xFFFACD01",
             "description": [
                 {
-                    "item": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                    "item": "Responsible for uploading the app to the PlayStore and ensuring its smooth functioning."
                 },
                 {
-                    "item": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                    "item": "Developed and implemented various new features, including treatment of APIs, refactoring of existing codes, authentication of users, chat functionality, and secure payment processing with Stripe 3D secure."
                 },
                 {
-                    "item": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                    "item": "Maintained up-to-date knowledge of best practices and emerging technologies in mobile app development."
+                },
+                {
+                    "item": "Ability to work effectively as part of a remote team, demonstrating excellent communication skills and attention to detail."
                 }
             ]
         },
@@ -26,31 +29,34 @@
             "color": "0xFFE09090",
             "description": [
                 {
-                    "item": "item 1"
+                    "item": "Collaborate with the team to create new features and screens for Lojong's mobile app."
                 },
                 {
-                    "item": "item 2"
+                    "item": "Contribute to the migration of native Android to Flutter, following the MVVM architecture proposed by the team."
                 },
                 {
-                    "item": "item 3"
+                    "item": "Ensure code quality and maintainability by following best practices and participating in code reviews."
+                },
+                {
+                    "item": "Communicate effectively with team members to ensure the timely delivery of new features."
                 }
             ]
         },
         {
             "company": "Ubistart",
-            "role": "Flutter Developer",
+            "role": "Flutter Developer Support",
             "duration": "Sept 2021 - Dec 2022",
             "image": "assets/companies/ubistart_logo.png",
             "color": "0xFFFFFFFF",
             "description": [
                 {
-                    "item": "item 1"
+                    "item": "Experience with providing technical assistance and mentor in the context of mobile app development."
                 },
                 {
-                    "item": "item 2"
+                    "item": "Participate in the Flutter interview process for new projects"
                 },
                 {
-                    "item": "item 3"
+                    "item": "Ensure code quality and maintainability by making code reviews"
                 }
             ]
         },
@@ -62,13 +68,16 @@
             "color": "0xFFFFFFFF",
             "description": [
                 {
-                    "item": "item 1"
+                    "item": "Collaborated with a project manager and director to develop a mobile app for license plate detection project during 5 months using Dart / Flutter."
                 },
                 {
-                    "item": "item 2"
+                    "item": "Integrated Firebase's Machine Learning Kit for camera-based license plate detection."
                 },
                 {
-                    "item": "item 3"
+                    "item": "Integrated APIs for data retrieval and manipulation."
+                },
+                {
+                    "item": "Ensured high-quality code and adherence to best practices."
                 }
             ]
         },
@@ -80,13 +89,13 @@
             "color": "0xFF42A5F5",
             "description": [
                 {
-                    "item": "item 1"
+                    "item": "Developed a mobile app from scratch using Flutter for pet owners."
                 },
                 {
-                    "item": "item 2"
+                    "item": "Implemented features such as login process, password recovery, Google Maps integration with geolocation API, pet cards with pet information, and more."
                 },
                 {
-                    "item": "item 3"
+                    "item": "Communicated effectively with the client to understand their needs and provide regular progress updates."
                 }
             ]
         }

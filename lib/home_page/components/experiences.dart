@@ -18,7 +18,7 @@ class _ExperiencesState extends State<Experiences> {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [topComponent, divider, experiences],
+        children: [topComponent, divider, experiences, divider],
       ),
     );
   }
@@ -97,7 +97,7 @@ class _ExperiencesState extends State<Experiences> {
       );
 
   Widget expTileMobile(Experience data, int index) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
