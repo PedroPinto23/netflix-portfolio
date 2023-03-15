@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/home_page/components/about_me.dart';
-import 'package:my_resume/home_page/components/contact.dart';
-import 'package:my_resume/home_page/components/experiences.dart';
-import 'package:my_resume/home_page/components/header.dart';
+import 'package:my_resume/widgets/components/about_me.dart';
+import 'package:my_resume/widgets/components/contact_me.dart';
+import 'package:my_resume/widgets/components/experiences.dart';
+import 'package:my_resume/widgets/components/header.dart';
 import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/image_strings.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainScreenState extends State<MainScreen> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: body);
-  }
+  Widget build(BuildContext context) => Scaffold(body: body);
 
   Widget get body => Stack(
         alignment: Alignment.center,
@@ -51,7 +49,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget get aboutMe => const AboutMeComponent();
 
-  Widget get experiences => const Experiences();
+  Widget get experiences => const ExpComponent();
 
-  Widget get contact => const Contact();
+  Widget get contact => const ContactComponent();
 }

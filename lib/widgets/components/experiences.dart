@@ -6,14 +6,14 @@ import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class Experiences extends StatefulWidget {
-  const Experiences({super.key});
+class ExpComponent extends StatefulWidget {
+  const ExpComponent({super.key});
 
   @override
-  State<Experiences> createState() => _ExperiencesState();
+  State<ExpComponent> createState() => _ExpComponentState();
 }
 
-class _ExperiencesState extends State<Experiences> {
+class _ExpComponentState extends State<ExpComponent> {
   int currentLength = 3;
   ExperiencesData? expData;
 

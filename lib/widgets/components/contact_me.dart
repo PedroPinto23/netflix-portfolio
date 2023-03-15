@@ -4,21 +4,21 @@ import 'package:my_resume/strings/color_strings.dart';
 import 'package:my_resume/strings/text_strings.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class Contact extends StatefulWidget {
-  const Contact({super.key});
+class ContactComponent extends StatefulWidget {
+  const ContactComponent({super.key});
 
   @override
-  State<Contact> createState() => _ContactState();
+  State<ContactComponent> createState() => _ContactComponentState();
 }
 
-class _ContactState extends State<Contact> {
+class _ContactComponentState extends State<ContactComponent> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [title, email, phone, root, github],
+        children: [title, email, linkedIn, phone, root, github],
       ),
     );
   }
@@ -48,6 +48,13 @@ class _ContactState extends State<Contact> {
         ),
       );
 
+  Widget get linkedIn => InkWell(
+      onTap: () => onTapLink(TextStrings.contactLinkedIn),
+      child: myContactTile(
+        TextStrings.contactLinkedInLabel,
+        TextStrings.contactLinkedIn,
+      ));
+
   Widget get phone => InkWell(
       onTap: onTapPhone,
       child: myContactTile(
@@ -61,7 +68,7 @@ class _ContactState extends State<Contact> {
       );
 
   Widget get github => InkWell(
-      onTap: onTapGithub,
+      onTap: () => onTapLink(TextStrings.contactgithub),
       child: myContactTile(
         TextStrings.contactgithubLabel,
         TextStrings.contactgithub,
@@ -72,11 +79,10 @@ class _ContactState extends State<Contact> {
       );
 
   Future<void> onTapPhone() async => await launchUrlString(
-        "tel:${TextStrings.contactPhone}",
+        "whatsapp://send?phone=${TextStrings.contactPhone}",
       );
 
-  Future<void> onTapGithub() async =>
-      await launchUrlString(TextStrings.contactgithub);
+  Future<void> onTapLink(String link) async => await launchUrlString(link);
 
   TextStyle get titleStyle => GoogleFonts.oxygen(
         fontWeight: FontWeight.bold,

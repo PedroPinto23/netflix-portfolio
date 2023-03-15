@@ -87,11 +87,12 @@ class _HeaderComponentState extends State<HeaderComponent> {
       );
 
   Widget get addFavoritesButton => Container(
-        decoration: likeDecoration,
+        padding: const EdgeInsets.all(5),
+        decoration: circleDecoration,
         child: const Icon(
           Icons.add,
-          color: Color(0x3CFFFFFF),
-          size: 40,
+          color: ColorStrings.grey,
+          size: 30,
         ),
       );
 
@@ -104,11 +105,11 @@ class _HeaderComponentState extends State<HeaderComponent> {
       );
 
   Widget get whiteBorder => Container(
-        decoration: likeDecoration,
+        decoration: circleDecoration,
         child: const Icon(Icons.abc, color: Colors.transparent, size: 40),
       );
 
-  BoxDecoration get likeDecoration => BoxDecoration(
+  BoxDecoration get circleDecoration => BoxDecoration(
         border: Border.all(color: Colors.white),
         shape: BoxShape.circle,
       );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_resume/home_page/home_page.dart';
+import 'package:my_resume/widgets/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Pedro Pinto',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: const HomePage(),
+      home: const MainScreen(),
     );
   }
 }
