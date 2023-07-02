@@ -123,7 +123,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   Widget get photoComponent => Container(
         foregroundDecoration: BoxDecoration(gradient: profileGradient),
-        child: Image.asset(profileImage, width: mobileMode ? width : null),
+        child: Image.asset(profileImage, width: mobileMode ? width : 500),
       );
 
   LinearGradient get profileGradient => LinearGradient(

@@ -1,28 +1,6 @@
 {
     "experiences": [
         {
-            "company": "SUNDAY",
-            "role": "Sênior Flutter Developer",
-            "duration": "Apr 2021 - Present",
-            "image": "assets/companies/sunday_logo.png",
-            "link": "https://play.google.com/store/apps/details?id=com.app.sunday",
-            "color": "0xFFFACD01",
-            "description": [
-                {
-                    "item": "Responsible for uploading the app to the PlayStore and ensuring its smooth functioning."
-                },
-                {
-                    "item": "Developed and implemented various new features, including treatment of APIs, refactoring of existing codes, authentication of users, chat functionality, video player and secure payment processing with Stripe 3D secure."
-                },
-                {
-                    "item": "Maintained up-to-date knowledge of best practices and emerging technologies in mobile app development."
-                },
-                {
-                    "item": "Ability to work effectively as part of a remote team, demonstrating excellent communication skills and attention to detail."
-                }
-            ]
-        },
-        {
             "company": "Lojong",
             "role": "Part-Time Flutter Developer",
             "duration": "Sept 22 - Present",
@@ -41,6 +19,28 @@
                 },
                 {
                     "item": "Communicate effectively with team members to ensure the timely delivery of new features."
+                }
+            ]
+        },
+        {
+            "company": "SUNDAY",
+            "role": "Sênior Flutter Developer",
+            "duration": "Apr 2021 - 2023",
+            "image": "assets/companies/sunday_logo.png",
+            "link": "https://play.google.com/store/apps/details?id=com.app.sunday",
+            "color": "0xFFFACD01",
+            "description": [
+                {
+                    "item": "Responsible for uploading the app to the PlayStore and ensuring its smooth functioning."
+                },
+                {
+                    "item": "Developed and implemented various new features, including treatment of APIs, refactoring of existing codes, authentication of users, chat functionality, video player and secure payment processing with Stripe 3D Secure."
+                },
+                {
+                    "item": "Maintained up-to-date knowledge of best practices and emerging technologies in mobile app development."
+                },
+                {
+                    "item": "Ability to work effectively as part of a remote team, demonstrating excellent communication skills and attention to detail."
                 }
             ]
         },
