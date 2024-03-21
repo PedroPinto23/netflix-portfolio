@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_resume/strings/color_strings.dart';
-import 'package:my_resume/strings/image_strings.dart';
-import 'package:my_resume/strings/text_strings.dart';
+import 'package:pedropinto/strings/color_strings.dart';
+import 'package:pedropinto/strings/image_strings.dart';
+import 'package:pedropinto/strings/text_strings_en.dart';
+import 'package:pedropinto/strings/text_strings_pt.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class HeaderComponent extends StatefulWidget {
-  const HeaderComponent({super.key});
+  final String? languageCode;
+  const HeaderComponent({this.languageCode, super.key});
 
   @override
   State<HeaderComponent> createState() => _HeaderComponentState();
@@ -30,6 +32,10 @@ class _HeaderComponentState extends State<HeaderComponent> {
     );
   }
 
+  String get languageCode => widget.languageCode ?? TextStringsEn.languageCode;
+
+  bool get isPortuguese => languageCode == TextStringsPt.languageCode;
+
   double get fontSizeTitleDefault => 40.0;
 
   double get fontSizeTitle => width / 13;
@@ -42,9 +48,11 @@ class _HeaderComponentState extends State<HeaderComponent> {
 
   bool get mobileMode => width < 500;
 
-  String get headerTitle => TextStrings.headerTitle;
+  String get headerTitle => isPortuguese ? TextStringsPt.headerTitle : TextStringsEn.headerTitle;
 
-  String get resumeText => TextStrings.resumeText;
+  String get resumeText => isPortuguese ? TextStringsPt.resumeText : TextStringsEn.resumeText;
+
+  String get aboutMeResumeLink => isPortuguese ? TextStringsPt.aboutMeResumeLink : TextStringsEn.aboutMeResumeLink;
 
   String get profileImage => ImageStrings.profileImage;
 
@@ -132,7 +140,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
         colors: const [Colors.transparent, Colors.black],
       );
 
-  void onTapResume() => launchUrlString(TextStrings.aboutMeResumeLink);
+  void onTapResume() => launchUrlString(aboutMeResumeLink);
 
   void onTapLike() => setState(() => iconLiked = true);
 

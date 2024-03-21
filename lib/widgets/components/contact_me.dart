@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_resume/strings/color_strings.dart';
-import 'package:my_resume/strings/text_strings.dart';
+import 'package:pedropinto/strings/color_strings.dart';
+import 'package:pedropinto/strings/text_strings_en.dart';
+import 'package:pedropinto/strings/text_strings_pt.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ContactComponent extends StatefulWidget {
-  const ContactComponent({super.key});
+  final String? languageCode;
+  const ContactComponent({this.languageCode, super.key});
 
   @override
   State<ContactComponent> createState() => _ContactComponentState();
@@ -25,7 +27,7 @@ class _ContactComponentState extends State<ContactComponent> {
 
   Widget get title => Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Text(TextStrings.contactTitle, style: titleStyle),
+        child: Text(contactTitle, style: titleStyle),
       );
 
   Widget myContactTile(String label, String value) => Padding(
@@ -42,44 +44,65 @@ class _ContactComponentState extends State<ContactComponent> {
 
   Widget get email => InkWell(
         onTap: onTapEmail,
-        child: myContactTile(
-          TextStrings.contactEmailLabel,
-          TextStrings.contactEmail,
-        ),
+        child: myContactTile(contactEmailLabel, contactEmail),
       );
 
   Widget get linkedIn => InkWell(
-      onTap: () => onTapLink(TextStrings.contactLinkedIn),
-      child: myContactTile(
-        TextStrings.contactLinkedInLabel,
-        TextStrings.contactLinkedIn,
-      ));
+      onTap: () => onTapLink(contactLinkedIn),
+      child: myContactTile(contactLinkedInLabel, contactLinkedIn));
 
   Widget get phone => InkWell(
-      onTap: onTapPhone,
-      child: myContactTile(
-        TextStrings.contactPhoneLabel,
-        TextStrings.contactPhone,
-      ));
+      onTap: onTapPhone, child: myContactTile(contactPhoneLabel, contactPhone));
 
   Widget get root => Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Text(TextStrings.contactRootText, style: rootStyle),
+        child: Text(contactRootText, style: rootStyle),
       );
 
   Widget get github => InkWell(
-      onTap: () => onTapLink(TextStrings.contactgithub),
-      child: myContactTile(
-        TextStrings.contactgithubLabel,
-        TextStrings.contactgithub,
-      ));
+      onTap: () => onTapLink(contactgithub),
+      child: myContactTile(contactgithubLabel, contactgithub));
+
+  String get languageCode => widget.languageCode ?? TextStringsEn.languageCode;
+
+  bool get isPortuguese => languageCode == TextStringsPt.languageCode;
+
+  String get contactTitle => isPortuguese
+      ? TextStringsPt.contactTitle
+      : TextStringsEn.contactTitle;
+
+  String get contactEmailLabel => isPortuguese
+      ? TextStringsPt.contactEmailLabel
+      : TextStringsEn.contactEmailLabel;
+
+  String get contactEmail => TextStringsEn.contactEmail;
+
+  String get contactLinkedInLabel => TextStringsEn.contactLinkedInLabel;
+
+  String get contactLinkedIn => TextStringsEn.contactLinkedIn;
+
+  String get contactPhoneLabel => isPortuguese
+      ? TextStringsPt.contactPhoneLabel
+      : TextStringsEn.contactPhoneLabel;
+
+  String get contactPhone => TextStringsEn.contactPhone;
+
+  String get contactRootText => isPortuguese
+      ? TextStringsPt.contactRootText
+      : TextStringsEn.contactRootText;
+
+  String get contactgithubLabel => isPortuguese
+      ? TextStringsPt.contactgithubLabel
+      : TextStringsEn.contactgithubLabel;
+
+  String get contactgithub => TextStringsEn.contactgithub;
 
   Future<void> onTapEmail() async => await launchUrlString(
-        "mailto:${TextStrings.contactEmail}",
+        "mailto:${TextStringsEn.contactEmail}",
       );
 
   Future<void> onTapPhone() async => await launchUrlString(
-        "whatsapp://send?phone=${TextStrings.contactPhone}",
+        "whatsapp://send?phone=${TextStringsEn.contactPhone}",
       );
 
   Future<void> onTapLink(String link) async => await launchUrlString(link);

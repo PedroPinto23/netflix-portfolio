@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_resume/strings/color_strings.dart';
-import 'package:my_resume/strings/text_strings.dart';
+import 'package:pedropinto/settings/settings_model.dart';
+import 'package:pedropinto/strings/color_strings.dart';
+import 'package:pedropinto/strings/text_strings_en.dart';
+import 'package:pedropinto/strings/text_strings_pt.dart';
+import 'package:provider/provider.dart';
 
 class AboutMeComponent extends StatefulWidget {
-  const AboutMeComponent({super.key});
+  final String? languageCode;
+  const AboutMeComponent({this.languageCode, super.key});
 
   @override
   State<AboutMeComponent> createState() => _AboutMeComponentState();
@@ -40,9 +44,9 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
 
   Widget get titleComponent => Row(
         children: [
-          Text(TextStrings.aboutMeMainSkill, style: titleStyle1),
+          Text(aboutMeMainSkill, style: titleStyle1),
           const SizedBox(width: 15),
-          Text(TextStrings.aboutMeYear, style: titleStyle2),
+          Text(aboutMeYear, style: titleStyle2),
           const SizedBox(width: 15),
           Flexible(child: languagesComponent)
         ],
@@ -53,32 +57,37 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
         children: [
           const Icon(Icons.message_outlined, color: Colors.white, size: 15),
           const SizedBox(width: 5),
-          Text(TextStrings.aboutMeLanguages, style: titleStyle2),
+          englishComponent,
+          const SizedBox(width: 5),
+          Text("|", style: titleStyle2),
+          const SizedBox(width: 5),
+          portugueseComponent,
         ],
       );
 
-  Widget get description => Text(
-        TextStrings.aboutMeDescription,
-        style: descriptionStyle,
+  Widget get portugueseComponent => Consumer<SettingsModel>(
+        builder: (context, model, child) => GestureDetector(
+          onTap: () => model.changeLanguageCode(portuguese),
+          child: Text(portuguese, style: languageStyle(portuguese)),
+        ),
       );
+
+  Widget get englishComponent => Consumer<SettingsModel>(
+        builder: (context, model, child) => GestureDetector(
+          onTap: () => model.changeLanguageCode(english),
+          child: Text(english, style: languageStyle(english)),
+        ),
+      );
+
+  Widget get description => Text(aboutMeDescription, style: descriptionStyle);
 
   Widget get rightComponent => Padding(
         padding: const EdgeInsets.only(top: 3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            myInfoTile(
-              TextStrings.aboutMeEduLabel,
-              TextStrings.aboutMeEduValue,
-            ),
-            myInfoTile(
-              TextStrings.aboutMeSkillsLabel,
-              TextStrings.aboutMeSkillsValue,
-            ),
-            myInfoTile(
-              TextStrings.aboutMeMethodLabel,
-              TextStrings.aboutMeMethodValue,
-            ),
+            myInfoTile(aboutMeSkillsLabel, aboutMeSkillsValue),
+            myInfoTile(aboutMeMethodLabel, aboutMeMethodValue),
           ],
         ),
       );
@@ -95,9 +104,39 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
         ),
       );
 
+  String get languageCode => widget.languageCode ?? TextStringsEn.languageCode;
+
+  bool get isPortuguese => languageCode == TextStringsPt.languageCode;
+
+  String get aboutMeMainSkill => isPortuguese
+      ? TextStringsPt.aboutMeMainSkill
+      : TextStringsEn.aboutMeMainSkill;
+
+  String get aboutMeYear => isPortuguese ? TextStringsPt.aboutMeYear : TextStringsEn.aboutMeYear;
+
+  String get aboutMeSkillsLabel => isPortuguese
+      ? TextStringsPt.aboutMeSkillsLabel
+      : TextStringsEn.aboutMeSkillsLabel;
+
+  String get aboutMeSkillsValue => TextStringsEn.aboutMeSkillsValue;
+
+  String get aboutMeMethodLabel => isPortuguese
+      ? TextStringsPt.aboutMeMethodLabel
+      : TextStringsEn.aboutMeMethodLabel;
+
+  String get aboutMeMethodValue => TextStringsEn.aboutMeMethodValue;
+
+  String get aboutMeDescription => isPortuguese
+      ? TextStringsPt.aboutMeDescription
+      : TextStringsEn.aboutMeDescription;
+
   double get width => MediaQuery.of(context).size.width;
 
-  bool get mobileMode => width < 700;
+  String get portuguese => TextStringsPt.languageCode;
+
+  String get english => TextStringsEn.languageCode;
+
+  bool get mobileMode => width < 1200;
 
   bool get isTiny => width < 500;
 
@@ -113,6 +152,15 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
         color: ColorStrings.white,
         fontSize: isTiny ? (width * 0.025) : 13,
       );
+
+  TextStyle languageStyle(String value) {
+    bool isLanguageSelected = languageCode == value;
+    return GoogleFonts.oxygen(
+      fontWeight: isLanguageSelected ? FontWeight.w800 : FontWeight.w500,
+      color: isLanguageSelected ? ColorStrings.green : ColorStrings.white,
+      fontSize: isTiny ? (width * 0.025) : 13,
+    );
+  }
 
   TextStyle get descriptionLabelStyle => GoogleFonts.oxygen(
         color: ColorStrings.grey,

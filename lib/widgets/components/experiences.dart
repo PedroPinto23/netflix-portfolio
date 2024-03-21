@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_resume/data/experience_data.dart';
-import 'package:my_resume/data/fetch_experience_data.dart';
-import 'package:my_resume/strings/color_strings.dart';
-import 'package:my_resume/strings/text_strings.dart';
+import 'package:pedropinto/data/experience_data.dart';
+import 'package:pedropinto/data/fetch_experience_data.dart';
+import 'package:pedropinto/strings/color_strings.dart';
+import 'package:pedropinto/strings/text_strings_en.dart';
+import 'package:pedropinto/strings/text_strings_pt.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class ExpComponent extends StatefulWidget {
-  const ExpComponent({super.key});
+  final String? languageCode;
+  const ExpComponent({this.languageCode, super.key});
 
   @override
   State<ExpComponent> createState() => _ExpComponentState();
@@ -15,14 +17,13 @@ class ExpComponent extends StatefulWidget {
 
 class _ExpComponentState extends State<ExpComponent> {
   int currentLength = 3;
-  ExperiencesData? expData;
+  ExperiencesData? expDataEn;
+  ExperiencesData? expDataPt;
 
   @override
   void initState() {
     super.initState();
-    FetchExperience.getData().then((data) {
-      setState(() => expData = data);
-    });
+    onSetExperienceData();
   }
 
   @override
@@ -41,11 +42,21 @@ class _ExpComponentState extends State<ExpComponent> {
     );
   }
 
+  String get languageCode => widget.languageCode ?? TextStringsEn.languageCode;
+
+  bool get isPortuguese => languageCode == TextStringsPt.languageCode;
+
+  ExperiencesData? get expData => isPortuguese ? expDataPt : expDataEn;
+
   bool get isDataEmpty => expData == null;
 
   List<Experience> get expList => expData?.experiences ?? [];
 
   bool get showMore => expList.length > currentLength;
+
+  String get expYearsValue => isPortuguese ? TextStringsPt.expYearsValue : TextStringsEn.expYearsValue;
+
+  String get expTitle => isPortuguese ? TextStringsPt.expTitle : TextStringsEn.expTitle;
 
   Widget get topComponent => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,7 +65,7 @@ class _ExpComponentState extends State<ExpComponent> {
 
   Widget get title => Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Text(TextStrings.expTitle, style: titleStyle),
+        child: Text(expTitle, style: titleStyle),
       );
 
   Widget get yearsExpComponent => Container(
@@ -62,7 +73,7 @@ class _ExpComponentState extends State<ExpComponent> {
         decoration: yearsExpDecoration,
         child: Row(
           children: [
-            Text(TextStrings.expYearsValue, style: yearsExpStyle),
+            Text(expYearsValue, style: yearsExpStyle),
             const Icon(
               Icons.arrow_drop_down_sharp,
               color: ColorStrings.white,
@@ -235,10 +246,16 @@ class _ExpComponentState extends State<ExpComponent> {
 
   bool get isTiny => width < 500;
 
-  void onTapTile(String? link) {
+  Future<void> onTapTile(String? link) async {
     if (link?.isNotEmpty ?? false) {
-      launchUrlString(link!);
+      await launchUrlString(link!);
     }
+  }
+
+  Future<void> onSetExperienceData() async {
+    expDataEn = await FetchExperience.getData();
+    expDataPt = await FetchExperience.getData(lang: "pt");
+    setState(() {});
   }
 
   void onShowMore() => setState(() => currentLength = expList.length);

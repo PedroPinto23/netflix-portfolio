@@ -1,0 +1,130 @@
+{
+    "experiences": [
+        {
+            "company": "Kalunga",
+            "role": "Desenvolvedor Mobile Full-Time",
+            "duration": "Out 2023 - Atual",
+            "image": "assets/companies/kalunga_logo.png",
+            "link": "https://apps.apple.com/br/app/kalunga/id467359104",
+            "color": "0xFF000000",
+            "description": [
+                {
+                    "item": "Implementação de interface de usuário intuitiva e responsiva para a tela de login e cadastro."
+                },
+                {
+                    "item": "Colaboração com a equipe de backend para integrar APIs RESTful no aplicativo."
+                },
+                {
+                    "item": "Implementação de autenticação biométrica utilizando a lib local_auth no Android e iOS."
+                },
+                {
+                    "item": "Configuração e integração de serviços de push notification, como Firebase Cloud Messaging (Android) e Apple Push Notification Service (iOS)."
+                }
+            ]
+        },
+        {
+            "company": "Lojong",
+            "role": "Desenvolvedor Mobile Part-Time",
+            "duration": "Set 2022 - Out 2023",
+            "image": "assets/companies/lojong_logo.png",
+            "link": "https://play.google.com/store/apps/details?id=br.com.lojong",
+            "color": "0xFFE09090",
+            "description": [
+                {
+                    "item": "Colaboração com a equipe para criar novas funcionalidades e telas para o app da Lojong."
+                },
+                {
+                    "item": "Contribuição para a migração do Android nativo para o Flutter, seguindo a arquitetura MVVM proposta pela equipe."
+                },
+                {
+                    "item": "Garantia da qualidade do código e a manutenibilidade seguindo as melhores práticas e participando de revisões de código."
+                },
+                {
+                    "item": "Comunicação efetiva com os membros da equipe para garantir a entrega oportuna de novas funcionalidades."
+                }
+            ]
+        },
+        {
+            "company": "SUNDAY",
+            "role": "Desenvolvedor Mobile Full-Time",
+            "duration": "Abr 2021 - Fev 2023",
+            "image": "assets/companies/sunday_logo.png",
+            "link": "https://play.google.com/store/apps/details?id=com.app.sunday",
+            "color": "0xFFFACD01",
+            "description": [
+                {
+                    "item": "Responsável por enviar o aplicativo para a PlayStore e garantir seu funcionamento suave."
+                },
+                {
+                    "item": "Desenvolver e implementar novas funcionalidades, incluindo tratamento de APIs, refatoração de códigos existentes, autenticação de usuários, funcionalidade de chat, player de vídeo e processamento de pagamentos seguros com o Stripe 3D Secure."
+                },
+                {
+                    "item": "Manter conhecimento atualizado das melhores práticas e tecnologias emergentes no desenvolvimento de apps."
+                },
+                {
+                    "item": "Capacidade de trabalhar efetivamente como parte de uma equipe remota, demonstrando habilidades de comunicação excelentes e atenção aos detalhes."
+                }
+            ]
+        },
+        {
+            "company": "Ubistart",
+            "role": "Flutter Developer Support",
+            "duration": "Set 2021 - Dez 2022",
+            "image": "assets/companies/ubistart_logo.png",
+            "link": "https://www.ubistart.com/",
+            "color": "0xFFFFFFFF",
+            "description": [
+                {
+                    "item": "Experiência em fornecer assistência técnica e mentoria no contexto do desenvolvimento de apps."
+                },
+                {
+                    "item": "Participar do processo de entrevista do Flutter para novos projetos."
+                },
+                {
+                    "item": "Garantir a qualidade do código e a manutenibilidade por meio de revisões de código."
+                }
+            ]
+        },
+        {
+            "company": "Ubistart",
+            "role": "Flutter Developer",
+            "duration": "Set 2020 - Fev 2021",
+            "image": "assets/companies/ubistart_logo.png",
+            "link": "https://www.ubistart.com/",
+            "color": "0xFFFFFFFF",
+            "description": [
+                {
+                    "item": "Colaborar com um gerente de projeto e diretor para desenvolver um app para um projeto de detecção de placas de veículos durante 5 meses, utilizando Dart / Flutter."
+                },
+                {
+                    "item": "Integrar o MlKit do Firebase utilizando AI para detecção de placas de veículos baseada em câmera."
+                },
+                {
+                    "item": "Integrar APIs para recuperação e manipulação de dados."
+                },
+                {
+                    "item": "Garantir código de alta qualidade e adesão às melhores práticas."
+                }
+            ]
+        },
+        {
+            "company": "PetTech",
+            "role": "Flutter Developer (Freelancer)",
+            "duration": "Mar 2020 - Abr 2020",
+            "image": "assets/companies/pettech_logo.jpeg",
+            "link": "",
+            "color": "0xFF42A5F5",
+            "description": [
+                {
+                    "item": "Desenvolver um app do zero utilizando Flutter para proprietários de animais de estimação."
+                },
+                {
+                    "item": "Implementar recursos como processo de login, recuperação de senha, integração do Google Maps com API de geolocalização, cartões de animais de estimação com informações sobre o animal e muito mais."
+                },
+                {
+                    "item": "Comunicar efetivamente com o cliente para entender suas necessidades e fornecer atualizações regulares de progresso."
+                }
+            ]
+        }
+    ]
+}

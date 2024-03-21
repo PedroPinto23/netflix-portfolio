@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:my_resume/widgets/components/about_me.dart';
-import 'package:my_resume/widgets/components/contact_me.dart';
-import 'package:my_resume/widgets/components/experiences.dart';
-import 'package:my_resume/widgets/components/header.dart';
-import 'package:my_resume/strings/color_strings.dart';
-import 'package:my_resume/strings/image_strings.dart';
+import 'package:pedropinto/settings/settings_model.dart';
+import 'package:pedropinto/widgets/components/about_me.dart';
+import 'package:pedropinto/widgets/components/contact_me.dart';
+import 'package:pedropinto/widgets/components/experiences.dart';
+import 'package:pedropinto/widgets/components/header.dart';
+import 'package:pedropinto/strings/color_strings.dart';
+import 'package:pedropinto/strings/image_strings.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -36,20 +38,19 @@ class _MainScreenState extends State<MainScreen> {
   Widget get portfolio => Container(
         margin: EdgeInsets.symmetric(horizontal: mobileMode ? 0 : width / 5),
         color: ColorStrings.primary,
-        child: ListView(
-          children: [header, aboutMe, experiences, contact],
+        child: Consumer<SettingsModel>(
+          builder: (context, model, child) => ListView(
+            children: [
+              HeaderComponent(languageCode: model.languageCode),
+              AboutMeComponent(languageCode: model.languageCode),
+              ExpComponent(languageCode: model.languageCode),
+              ContactComponent(languageCode: model.languageCode),
+            ],
+          ),
         ),
       );
 
   double get width => MediaQuery.of(context).size.width;
 
   bool get mobileMode => width < 1000;
-
-  Widget get header => const HeaderComponent();
-
-  Widget get aboutMe => const AboutMeComponent();
-
-  Widget get experiences => const ExpComponent();
-
-  Widget get contact => const ContactComponent();
 }
