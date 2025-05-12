@@ -1,6 +1,6 @@
 {
-    "name": "my_resume",
-    "short_name": "my_resume",
+    "name": "netflix_portfolio",
+    "short_name": "netflix_portfolio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

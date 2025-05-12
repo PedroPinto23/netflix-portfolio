@@ -52,7 +52,7 @@ class _ContactComponentState extends State<ContactComponent> {
       child: myContactTile(contactLinkedInLabel, contactLinkedIn));
 
   Widget get phone => InkWell(
-      onTap: onTapPhone, child: myContactTile(contactPhoneLabel, contactPhone));
+      onTap: onTapPhone, child: myContactTile(contactPhoneLabel, TextStringsEn.contactPhone));
 
   Widget get root => Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -85,7 +85,7 @@ class _ContactComponentState extends State<ContactComponent> {
       ? TextStringsPt.contactPhoneLabel
       : TextStringsEn.contactPhoneLabel;
 
-  String get contactPhone => TextStringsEn.contactPhone;
+  String get contactPhone => TextStringsEn.contactPhone.replaceAll(" ", "").replaceAll("-", "");
 
   String get contactRootText => isPortuguese
       ? TextStringsPt.contactRootText
@@ -102,7 +102,7 @@ class _ContactComponentState extends State<ContactComponent> {
       );
 
   Future<void> onTapPhone() async => await launchUrlString(
-        "whatsapp://send?phone=${TextStringsEn.contactPhone}",
+        "https://wa.me/$contactPhone",
       );
 
   Future<void> onTapLink(String link) async => await launchUrlString(link);

@@ -25,8 +25,9 @@ class _HeaderComponentState extends State<HeaderComponent> {
       child: Stack(
         alignment: Alignment.center,
         children: [
+          Positioned(right: 0, child: backgroundComponent),
           Positioned(right: 0, child: photoComponent),
-          Positioned(left: 0, child: nameTitleComponent)
+          Positioned(left: 0, child: nameTitleComponent),
         ],
       ),
     );
@@ -53,6 +54,8 @@ class _HeaderComponentState extends State<HeaderComponent> {
   String get resumeText => isPortuguese ? TextStringsPt.resumeText : TextStringsEn.resumeText;
 
   String get aboutMeResumeLink => isPortuguese ? TextStringsPt.aboutMeResumeLink : TextStringsEn.aboutMeResumeLink;
+
+  String get profileBackground => ImageStrings.profileBackground;
 
   String get profileImage => ImageStrings.profileImage;
 
@@ -120,7 +123,7 @@ class _HeaderComponentState extends State<HeaderComponent> {
   BoxDecoration get circleDecoration => BoxDecoration(
         border: Border.all(color: Colors.white),
         shape: BoxShape.circle,
-      );
+      );  
 
   Widget get likeIcon => Lottie.asset(
         ImageStrings.lottieLikeIcon,
@@ -129,9 +132,13 @@ class _HeaderComponentState extends State<HeaderComponent> {
         animate: iconLiked,
       );
 
-  Widget get photoComponent => Container(
-        foregroundDecoration: BoxDecoration(gradient: profileGradient),
-        child: Image.asset(profileImage, width: mobileMode ? width : 500),
+  Widget get backgroundComponent => imageComponent(profileBackground);
+
+  Widget get photoComponent => imageComponent(profileImage);
+
+  Widget imageComponent(String image) => Container(
+        foregroundDecoration: BoxDecoration(gradient: profileGradient, border: Border.all()),        
+        child: Image.asset(image, width: mobileMode ? width : 300),
       );
 
   LinearGradient get profileGradient => LinearGradient(
