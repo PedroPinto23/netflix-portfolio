@@ -112,7 +112,7 @@ class _ExpComponentState extends State<ExpComponent> {
             final i = index + 1;
             final showButton = showMore ? (length == i) : expList.length == i;
             return GestureDetector(
-              onTap: () => onTapTile(expList[index].link),
+              onTap: () => onTapTile(expList[index].link ?? ""),
               child: isTiny
                   ? expTileMobile(expList[index], index + 1)
                   : expTileDesktop(expList[index], i, showButton),
@@ -246,9 +246,9 @@ class _ExpComponentState extends State<ExpComponent> {
 
   bool get isTiny => width < 500;
 
-  Future<void> onTapTile(String? link) async {
-    if (link?.isNotEmpty ?? false) {
-      await launchUrlString(link!);
+  Future<void> onTapTile(String link) async {
+    if (link.isNotEmpty) {
+      await launchUrlString(link);
     }
   }
 

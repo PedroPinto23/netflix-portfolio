@@ -112,7 +112,7 @@ class _AboutMeComponentState extends State<AboutMeComponent> {
       ? TextStringsPt.aboutMeMainSkill
       : TextStringsEn.aboutMeMainSkill;
 
-  String get aboutMeYear => isPortuguese ? TextStringsPt.aboutMeYear : TextStringsEn.aboutMeYear;
+  String get aboutMeYear => DateTime.now().year.toString();
 
   String get aboutMeSkillsLabel => isPortuguese
       ? TextStringsPt.aboutMeSkillsLabel

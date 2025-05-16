@@ -4,7 +4,6 @@ class TextStringsEn {
   static const resumeText = "Resume";
 
   static const aboutMeMainSkill = "Mobile Developer";
-  static const aboutMeYear = "2025";
   static const aboutMeResumeLink = "https://drive.google.com/file/d/11Je_jYOL6l1wMum4rWesT2p7iDYGbdYm/view?usp=sharing";
   static const aboutMeDescription = "I'm a Brazilian mobile developer passionate about what I do and always looking for new challenges and opportunities to learn.\n\nThroughout my career, I've had the pleasure of working with several companies, and always receiving excellent feedback from my teamworkers. I'm highly attentive and dedicated to delivering quality work that meets and exceeds expectations.";
   static const aboutMeSkillsLabel = "Top Skills";
